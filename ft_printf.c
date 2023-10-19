@@ -6,7 +6,7 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:23:48 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/19 12:10:28 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:47:08 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	ft_return_function(char *format, va_list args, int *count)
 		ft_print_memory(va_arg(args, void *), count);
 	else if (*format == 'u')
 		ft_putnbr_base(va_arg(args, int), "0123456789", count);
+	else if (*format == '%')
+		ft_print_char('%', count);
 }
 
 static int	ft_print_op(const char *format, va_list args)
@@ -59,6 +61,11 @@ static int	ft_print_op(const char *format, va_list args)
 		}
 		else
 		{
+			if (ft_error((char *)format, args) == 1)
+			{
+				ft_putstr_fd("Wrong type given\n", 2);
+				return (0);
+			}
 			ft_return_function((char *)format, args, &printed);
 			format++;
 		}
@@ -74,5 +81,6 @@ int	ft_printf(const char *format, ...)
 
 	va_start(args, format);
 	count = ft_print_op(format, args);
+	va_end(args);
 	return (count);
 }

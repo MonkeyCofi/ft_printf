@@ -6,7 +6,7 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:55:24 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/18 18:32:19 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:35:35 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 int		ft_printf(const char *format, ...);
 void	ft_putnbr_base(int n, char *base, int *count);
 void	ft_print_memory(void *ptr, int *count);
-
+void	ft_flags(char **format, va_list args);
+int		ft_error(char *format, va_list args);
 
 // Print ops
 void	ft_print_str(char *str, int *count);

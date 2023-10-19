@@ -13,7 +13,7 @@ LIBFT_SRCS	=	$(LIBFTDIR)*.c
 LIBFT_OBJS	=	$(LIBFT_SRCS:.c=.o)
 
 SRCS		=	ft_printf.c ft_putnbr_base.c ft_print_memory.c ft_print_nbr.c \
-				ft_print_str.c ft_print_char.c
+				ft_print_str.c ft_print_char.c ft_error_check.c
 
 OBJS		=	$(SRCS:.c=.o)
 
