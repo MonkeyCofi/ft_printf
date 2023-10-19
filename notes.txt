@@ -1,0 +1,9 @@
+This is the order that the marks of the format string must follow:
+			%[parameter][flags][width][.precision][length]type
+
+ft_printf:
+-func error_check to make sure the given specifier has the correct argument passed
+
+func error_check:
+	- parse the string
+	- if the type of argument is not the same as the specifier, return error
