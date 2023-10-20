@@ -6,7 +6,7 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:23:48 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/19 16:47:08 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/20 11:57:34 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,6 @@ static int	ft_print_op(const char *format, va_list args)
 		}
 		else
 		{
-			if (ft_error((char *)format, args) == 1)
-			{
-				ft_putstr_fd("Wrong type given\n", 2);
-				return (0);
-			}
 			ft_return_function((char *)format, args, &printed);
 			format++;
 		}
