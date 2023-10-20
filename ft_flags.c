@@ -6,7 +6,7 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:32:27 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/20 12:54:09 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:11:29 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_is_not_type(char *format)
 	return (0);
 }
 
-static void	ft_print_width(int width)
+static void	ft_print_width(int width, int *count)
 {
 	int	i;
 
@@ -35,17 +35,31 @@ static void	ft_print_width(int width)
 	while (i < width)
 	{
 		ft_putchar_fd(' ', 1);
+		(*count)++;
 		i++;
 	}
 }
 
 void	ft_flags(char **format, va_list args)
 {
-	void	(*f)(int);
+	int		format_len;
+	int		flag_len;
+	void	(*f)(int, int *);
 
-	f = ft_print_width;
 	if (!ft_is_not_type(*format))
 		return ;
+	f = ft_print_width;
+	format_len = ft_strlen(*format);
+	while (ft_is_not_type(*format))
+	{
+		if (ft_isdigit(**format))
+		{
+			printf("width specifier detected: %c\n", **format);
+		}
+		(*format)++;
+	}
+	(void)flag_len;
+	(void)format_len;
 	(void)args;
 	(void)f;
 	return ;
