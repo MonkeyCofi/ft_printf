@@ -6,7 +6,7 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:32:27 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/19 15:27:16 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:54:09 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,14 @@ static void	ft_print_width(int width)
 	}
 }
 
-// input = %6d, arg = 3;
-// 
 void	ft_flags(char **format, va_list args)
 {
+	void	(*f)(int);
+
+	f = ft_print_width;
+	if (!ft_is_not_type(*format))
+		return ;
+	(void)args;
+	(void)f;
 	return ;
 }

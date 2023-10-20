@@ -5,7 +5,7 @@
 
 int main(void)
 {
-	int test = -15;
+	int test = 15;
 
 	ft_printf("Print memory: %p\n", &test);
 	ft_printf("Print number: %d\n", test);
@@ -15,5 +15,4 @@ int main(void)
 	ft_printf("Print unsigned: %u\n", test);
 	ft_printf("Print multiple: %d %c %d %s %d\n", 5, '+', 12, "is equal to", 5 + 12);
 	ft_printf("%%\n");
-	ft_printf("%d %d %d\n", 32, 15, 5);
 }

@@ -6,24 +6,13 @@
 /*   By: uwubuntu <uwubuntu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:23:48 by uwubuntu          #+#    #+#             */
-/*   Updated: 2023/10/20 11:57:34 by uwubuntu         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:50:15 by uwubuntu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// int	ft_printf(const char *format, ...)
-// {
-// 	va_list	args;
-// 	int		count;
-
-// 	count = 0;
-// 	va_start(args, format);
-// 	ft_parse_string(&format, args, &count);
-// 	return (count);
-// }
-
-static void	ft_return_function(char *format, va_list args, int *count)
+static void	ft_use_function(char *format, va_list args, int *count)
 {
 	format++;
 	if (*format == 'c')
@@ -61,7 +50,8 @@ static int	ft_print_op(const char *format, va_list args)
 		}
 		else
 		{
-			ft_return_function((char *)format, args, &printed);
+			ft_flags((char **)&format, args);
+			ft_use_function((char *)format, args, &printed);
 			format++;
 		}
 		format++;
